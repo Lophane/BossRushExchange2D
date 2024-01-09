@@ -10069,9 +10069,12 @@ MonoBehaviour:
   sprintMultiplier: 1.5
   sprintKey: 304
   dashKey: 32
-  dashDistance: 7.5
+  dashDistance: 50
   dashDuration: 0.2
   dashCooldown: 1
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &883073872
 Rigidbody2D:
   serializedVersion: 4
@@ -10203,7 +10206,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.49
 --- !u!4 &884942494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8865070353407006171, guid: 17ed311c6f73a864eb3c45c5c2f39001, type: 3}
