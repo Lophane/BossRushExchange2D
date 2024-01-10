@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float dashDistance = 10.0f;
     public float dashDuration = 0.5f;
     public float dashCooldown = 1.0f;
-    public string wallTag = "Wall"; // Tag for identifying walls
+    public string wallTag = "Wall";
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -56,11 +56,9 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 newPosition = rb.position + dashVelocity * Time.deltaTime;
 
-            // Raycast to check for wall collision
             RaycastHit2D hit = Physics2D.Raycast(rb.position, dashVelocity, dashVelocity.magnitude * Time.deltaTime);
             if (hit.collider != null && hit.collider.CompareTag(wallTag))
             {
-                // If a wall is hit, stop the dash
                 break;
             }
 
