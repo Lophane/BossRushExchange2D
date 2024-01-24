@@ -7,37 +7,31 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        if (armComponentRight == null)
-        {
-            armComponentRight = GetComponentInChildren<AI_Arm>();
-        }
-        if (armComponentLeft == null)
-        {
-            armComponentLeft = GetComponentInChildren<AI_Arm>();
-        }
+        // Find the right and left arms using tags or naming convention
+        armComponentRight = GameObject.FindGameObjectWithTag("RightArm").GetComponent<AI_Arm>();
+        armComponentLeft = GameObject.FindGameObjectWithTag("LeftArm").GetComponent<AI_Arm>();
     }
 
     void Update()
     {
+        // Right arm logic
         if (armComponentRight.currentState == AI_Arm.ArmState.Idle)
         {
             armComponentRight.UpdateState(AI_Arm.ArmState.Attacking);
         }
-
         if (armComponentRight.currentState == AI_Arm.ArmState.Attacking)
         {
             armComponentRight.PerformAttack();
         }
 
+        // Left arm logic
         if (armComponentLeft.currentState == AI_Arm.ArmState.Idle)
         {
             armComponentLeft.UpdateState(AI_Arm.ArmState.Attacking);
         }
-
         if (armComponentLeft.currentState == AI_Arm.ArmState.Attacking)
         {
             armComponentLeft.PerformAttack();
         }
-
     }
 }
