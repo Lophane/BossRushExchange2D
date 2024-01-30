@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AIMovement : MonoBehaviour
 {
@@ -10,9 +11,6 @@ public class AIMovement : MonoBehaviour
     public float minPauseDuration = 0.5f;
     public float maxPauseDuration = 1.5f;
 
-    public Weapon[] weapons = new Weapon[2];
-    private Weapon currentWeapon;
-
     private Vector3 targetPosition;
     private bool isMoving = true;
 
@@ -21,11 +19,23 @@ public class AIMovement : MonoBehaviour
     private GameObject currentTarget = null;
     public float stopChaseDistance = 2.0f;
 
+    public List<WeaponData> allWeapons;
+    public List<WeaponData> equippedWeapons = new List<WeaponData>();
+    private WeaponData currentWeapon;
+    public GameObject leftArmAttachmentPoint;
+    public GameObject rightArmAttachmentPoint;
+
+    public float attackCooldown = 1.0f;
+    private float currentAttackCooldown;
+
+    private int health = 10;
+
+
     private void Start()
     {
+        InitializeWeapons();
         SetRandomDestination();
-
-        AdjustBehaviorBasedOnWeapons();
+        currentAttackCooldown = attackCooldown;
 
     }
 
@@ -34,24 +44,36 @@ public class AIMovement : MonoBehaviour
         if (currentTarget != null)
         {
 
-            SelectWeaponForAttack();
-
-            AdjustBehaviorBasedOnCurrentWeapon();
-
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
             if (distanceToTarget > targetDetectionRadius)
             {
                 currentTarget = null;
                 isMoving = true;
+                currentWeapon = null;
                 SetRandomDestination();
             }
             else if (distanceToTarget > stopChaseDistance)
             {
+
+                if (currentWeapon == null)
+                {
+                    SelectWeaponForAttack();
+
+                    AdjustBehaviorBasedOnCurrentWeapon();
+                }
+
                 MoveTowardsTarget(currentTarget.transform.position);
             }
             else
             {
                 FaceTarget(currentTarget.transform.position);
+
+                if (currentAttackCooldown <= 0f)
+                {
+                    AttackWithCurrentWeapon();
+                    currentAttackCooldown = attackCooldown; // Reset cooldown
+
+                }
             }
         }
         else
@@ -76,6 +98,19 @@ public class AIMovement : MonoBehaviour
                 }
             }
         }
+
+        if (currentAttackCooldown >= 0.0f) 
+        {
+            Debug.Log(currentAttackCooldown);
+            currentAttackCooldown -= Time.deltaTime; // Decrease cooldown over time
+        }
+
+        if (health <= 0)
+        {
+            //dead
+        }
+
+
     }
 
 
@@ -151,33 +186,76 @@ public class AIMovement : MonoBehaviour
         return false;
     }
 
-    private void AdjustBehaviorBasedOnWeapons()
-    {
-        float maxRange = 0f;
-        foreach (var weapon in weapons)
-        {
-            if (weapon != null && weapon.effectiveRange > maxRange)
-            {
-                maxRange = weapon.effectiveRange;
-            }
-        }
-        stopChaseDistance = maxRange;
-    }
-
-    private void SelectWeaponForAttack()
-    {
-        if (weapons.Length > 0)
-        {
-            int randomIndex = Random.Range(0, weapons.Length);
-            currentWeapon = weapons[randomIndex];
-        }
-    }
-
+    //Adjusts minimum range from target to what the minimum range for the selected weapon is
     private void AdjustBehaviorBasedOnCurrentWeapon()
     {
         if (currentWeapon != null)
         {
             stopChaseDistance = currentWeapon.effectiveRange;
+        }
+    }
+
+    //Chooses 2 random weapons and equips them to either arm
+    private void InitializeWeapons()
+    {
+        WeaponData weapon1 = ChooseRandomWeapon();
+        WeaponData weapon2 = ChooseRandomWeapon(weapon1);
+
+        //Debug.Log(weapon1 + " & " + weapon2);
+
+        EquipWeapon(weapon1, leftArmAttachmentPoint);
+        EquipWeapon(weapon2, rightArmAttachmentPoint);
+    }
+
+    //choses a random weapon from the list avalable to the enemy (List in prefab)
+    private WeaponData ChooseRandomWeapon(WeaponData exclude = null)
+    {
+        WeaponData chosenWeapon;
+        do
+        {
+            chosenWeapon = allWeapons[Random.Range(0, allWeapons.Count)];
+        } while (chosenWeapon == exclude);
+        return chosenWeapon;
+    }
+
+    //Instantializes the chosen weapon to the correct arm slot
+    private void EquipWeapon(WeaponData weaponData, GameObject attachmentPoint)
+    {
+        if (weaponData != null && weaponData.weaponPrefab != null)
+        {
+            GameObject weaponObj = Instantiate(weaponData.weaponPrefab, attachmentPoint.transform);
+            weaponObj.transform.localPosition = Vector3.zero;
+            equippedWeapons.Add(weaponData); // Add the WeaponData to the list
+        }
+    }
+
+    //chooses an equip weapon to be the main weapon for the next attack
+    private void SelectWeaponForAttack()
+    {
+        if (equippedWeapons != null && equippedWeapons.Count > 0)
+        {
+            int randomIndex = Random.Range(0, equippedWeapons.Count);
+            currentWeapon = equippedWeapons[randomIndex];
+
+            attackCooldown = currentWeapon.attackSpeed; 
+            Debug.Log("Weapon selected: " + currentWeapon.weaponName);
+
+        }
+    }
+
+    private void AttackWithCurrentWeapon()
+    {
+        if (currentWeapon != null)
+        {
+            // attack code
+
+            SelectWeaponForAttack();
+            AdjustBehaviorBasedOnCurrentWeapon();
+            Debug.Log("attacked, switching to " + currentWeapon);
+        }
+        else
+        {
+            Debug.LogWarning("No weapon selected for attack");
         }
     }
 
