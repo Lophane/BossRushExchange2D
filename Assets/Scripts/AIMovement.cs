@@ -10,6 +10,9 @@ public class AIMovement : MonoBehaviour
     public float minPauseDuration = 0.5f;
     public float maxPauseDuration = 1.5f;
 
+    public Weapon[] weapons = new Weapon[2];
+    private Weapon currentWeapon;
+
     private Vector3 targetPosition;
     private bool isMoving = true;
 
@@ -21,12 +24,20 @@ public class AIMovement : MonoBehaviour
     private void Start()
     {
         SetRandomDestination();
+
+        AdjustBehaviorBasedOnWeapons();
+
     }
 
     private void Update()
     {
         if (currentTarget != null)
         {
+
+            SelectWeaponForAttack();
+
+            AdjustBehaviorBasedOnCurrentWeapon();
+
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.transform.position);
             if (distanceToTarget > targetDetectionRadius)
             {
@@ -138,6 +149,36 @@ public class AIMovement : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void AdjustBehaviorBasedOnWeapons()
+    {
+        float maxRange = 0f;
+        foreach (var weapon in weapons)
+        {
+            if (weapon != null && weapon.effectiveRange > maxRange)
+            {
+                maxRange = weapon.effectiveRange;
+            }
+        }
+        stopChaseDistance = maxRange;
+    }
+
+    private void SelectWeaponForAttack()
+    {
+        if (weapons.Length > 0)
+        {
+            int randomIndex = Random.Range(0, weapons.Length);
+            currentWeapon = weapons[randomIndex];
+        }
+    }
+
+    private void AdjustBehaviorBasedOnCurrentWeapon()
+    {
+        if (currentWeapon != null)
+        {
+            stopChaseDistance = currentWeapon.effectiveRange;
+        }
     }
 
 }
