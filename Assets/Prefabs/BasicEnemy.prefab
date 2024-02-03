@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 6921919049070892133}
   - component: {fileID: 834992280102439854}
   - component: {fileID: 8592860952047149614}
+  - component: {fileID: 3818417701435030331}
+  - component: {fileID: 5328365573378714759}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -141,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3799812770067958553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.05, y: 9.58, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -149,7 +151,7 @@ Transform:
   - {fileID: 8996236649563981904}
   - {fileID: 2883951065498851694}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &834992280102439854
 CircleCollider2D:
@@ -185,7 +187,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.65
+  m_Radius: 0.29
 --- !u!114 &8592860952047149614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +209,7 @@ MonoBehaviour:
   minPauseDuration: 0.5
   maxPauseDuration: 1.5
   targetDetectionRadius: 7.5
-  targetTag: Target
+  targetTag: Player
   stopChaseDistance: 2
   allWeapons:
   - {fileID: 11400000, guid: eca26bb89644af84d92003ba11a2c870, type: 2}
@@ -222,7 +224,34 @@ MonoBehaviour:
   equippedWeapons: []
   leftArmAttachmentPoint: {fileID: 537464622681542946}
   rightArmAttachmentPoint: {fileID: 4101903345374259618}
+  enemyWeaponController: {fileID: 3818417701435030331}
   attackCooldown: 1
+--- !u!114 &3818417701435030331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799812770067958553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4951fe38f5e500046a8c09130a5151ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}
+--- !u!114 &5328365573378714759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799812770067958553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c4b9c7f0e80ad4d9e0511e7ebd994d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 0
 --- !u!1 &4101903345374259618
 GameObject:
   m_ObjectHideFlags: 0

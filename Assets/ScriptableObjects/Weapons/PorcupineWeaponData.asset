@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: PorcupineArm
   weaponPrefab: {fileID: 7044893502217826317, guid: ac3401a03070f3d4d8067db55a2126a1, type: 3}
+  attackAnimation: {fileID: 0}
+  hitboxSize: {x: 0.5, y: 0.5}
+  hitboxOffset: {x: 0.47, y: 0.24}
+  hitboxStart: 0.1
+  hitboxEnd: 0.2
   damage: 2
   effectiveRange: 1.5
   attackSpeed: 4
+  armHealth: 4

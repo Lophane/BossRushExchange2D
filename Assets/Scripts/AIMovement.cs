@@ -15,7 +15,7 @@ public class AIMovement : MonoBehaviour
     private bool isMoving = true;
 
     public float targetDetectionRadius = 5.0f;
-    public string targetTag = "Target";
+    public string targetTag = "Player";
     private GameObject currentTarget = null;
     public float stopChaseDistance = 2.0f;
 
@@ -24,15 +24,19 @@ public class AIMovement : MonoBehaviour
     private WeaponData currentWeapon;
     public GameObject leftArmAttachmentPoint;
     public GameObject rightArmAttachmentPoint;
+    public EnemyWeaponController enemyWeaponController;
+
 
     public float attackCooldown = 1.0f;
     private float currentAttackCooldown;
 
     private int health = 10;
+    public int magnitude = 1;
 
 
-    private void Start()
+    private void Awake()
     {
+        enemyWeaponController = GetComponent<EnemyWeaponController>();
         InitializeWeapons();
         SetRandomDestination();
         currentAttackCooldown = attackCooldown;
@@ -70,8 +74,10 @@ public class AIMovement : MonoBehaviour
 
                 if (currentAttackCooldown <= 0f)
                 {
-                    AttackWithCurrentWeapon();
+                    enemyWeaponController.Attack();
+                    //Debug.Log("Attacked, boom");
                     currentAttackCooldown = attackCooldown; // Reset cooldown
+                    //Debug.Log(currentAttackCooldown);
 
                 }
             }
@@ -101,7 +107,6 @@ public class AIMovement : MonoBehaviour
 
         if (currentAttackCooldown >= 0.0f) 
         {
-            Debug.Log(currentAttackCooldown);
             currentAttackCooldown -= Time.deltaTime; // Decrease cooldown over time
         }
 
@@ -230,7 +235,7 @@ public class AIMovement : MonoBehaviour
     }
 
     //chooses an equip weapon to be the main weapon for the next attack
-    private void SelectWeaponForAttack()
+    public void SelectWeaponForAttack()
     {
         if (equippedWeapons != null && equippedWeapons.Count > 0)
         {
@@ -238,12 +243,13 @@ public class AIMovement : MonoBehaviour
             currentWeapon = equippedWeapons[randomIndex];
 
             attackCooldown = currentWeapon.attackSpeed; 
-            Debug.Log("Weapon selected: " + currentWeapon.weaponName);
+            //Debug.Log("Weapon selected: " + currentWeapon.weaponName);
+            enemyWeaponController.EquipWeapon(currentWeapon);
 
         }
     }
 
-    private void AttackWithCurrentWeapon()
+    /*private void AttackWithCurrentWeapon()
     {
         if (currentWeapon != null)
         {
@@ -257,6 +263,6 @@ public class AIMovement : MonoBehaviour
         {
             Debug.LogWarning("No weapon selected for attack");
         }
-    }
+    }*/
 
 }

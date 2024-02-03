@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: EagleArm
   weaponPrefab: {fileID: 8387388132940649330, guid: 783a62b03913ca94a8bbfb0e44ba9baa, type: 3}
+  attackAnimation: {fileID: 0}
+  hitboxSize: {x: 0.5, y: 0.5}
+  hitboxOffset: {x: 0.47, y: 0.24}
+  hitboxStart: 0.1
+  hitboxEnd: 0.2
   damage: 3
   effectiveRange: 3
   attackSpeed: 2
+  armHealth: 6

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float lastDashTime = -Mathf.Infinity;
     private bool isDashing = false;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,25 +26,27 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
-        if (Input.GetKey(sprintKey) && !isDashing)
-        {
-            moveVelocity = moveInput * moveSpeed * sprintMultiplier;
-        }
-        else if (!isDashing)
-        {
-            moveVelocity = moveInput * moveSpeed;
-        }
+            if (Input.GetKey(sprintKey) && !isDashing)
+            {
+                moveVelocity = moveInput * moveSpeed * sprintMultiplier;
+            }
+            else if (!isDashing)
+            {
+                moveVelocity = moveInput * moveSpeed;
+            }
 
-        if (Input.GetKeyDown(dashKey) && Time.time >= lastDashTime + dashCooldown && !isDashing)
-        {
-            StartCoroutine(Dash());
-        }
+            if (Input.GetKeyDown(dashKey) && Time.time >= lastDashTime + dashCooldown && !isDashing)
+            {
+                StartCoroutine(Dash());
+            }
 
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if(!GameManager.instance.isGamePaused)
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
     }
 
     IEnumerator Dash()
@@ -77,4 +80,5 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
         }
     }
+
 }
