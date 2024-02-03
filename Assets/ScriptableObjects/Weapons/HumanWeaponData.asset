@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: HumanArm
   weaponPrefab: {fileID: 7692476413259919329, guid: 09b16b487463a6e459ca52f8dee2c2c5, type: 3}
+  attackAnimation: {fileID: 0}
+  hitboxSize: {x: 0, y: 0}
+  hitboxOffset: {x: 0, y: 0}
   damage: 1
   effectiveRange: 3
   attackSpeed: 1
+  armHealth: 5

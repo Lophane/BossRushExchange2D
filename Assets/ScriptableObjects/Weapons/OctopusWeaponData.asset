@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: OctopusArm
   weaponPrefab: {fileID: 6033647578498361970, guid: 62019190230193542b455bf44192fe95, type: 3}
+  attackAnimation: {fileID: 0}
+  hitboxSize: {x: 0, y: 0}
+  hitboxOffset: {x: 0, y: 0}
   damage: 1
   effectiveRange: 6
   attackSpeed: 2
+  armHealth: 1
