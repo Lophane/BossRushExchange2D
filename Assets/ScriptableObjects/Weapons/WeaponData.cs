@@ -10,7 +10,7 @@ public class WeaponData : ScriptableObject
     public Vector2 hitboxOffset;
     public float hitboxStart;
     public float hitboxEnd;
-    public float damage;
+    public int damage;
     public float effectiveRange;
     public float attackSpeed;
     public float armHealth;

@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 100f;
+    public int health = 10;
+    public PlayerHealthCount playerHealthCount;
 
-    public void ApplyDamage(float damageAmount)
+    public void ApplyDamage(int damageAmount)
     {
         health -= damageAmount;
         Debug.Log($"Player health now {health}");
+
+        if (playerHealthCount != null)
+        {
+            playerHealthCount.UpdateHeartUI(health);
+        }
 
         if (health <= 0)
         {
