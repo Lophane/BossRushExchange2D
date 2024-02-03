@@ -6,6 +6,7 @@ public class EnemyWeaponController : MonoBehaviour
     private Animator animator;
     public WeaponData currentWeapon;
     private BoxCollider2D hitbox;
+    public int magnitude;
 
     private void Start()
     {
@@ -14,6 +15,8 @@ public class EnemyWeaponController : MonoBehaviour
         hitbox = gameObject.AddComponent<BoxCollider2D>();
         hitbox.isTrigger = true;
         hitbox.enabled = false;
+        magnitude = aiMovement.magnitude;
+
     }
 
     public void EquipWeapon(WeaponData newWeapon)
@@ -55,12 +58,12 @@ public class EnemyWeaponController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit!");
+            //Debug.Log("Hit!");
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                Debug.Log("Damage!");
-                playerHealth.ApplyDamage(currentWeapon.damage);
+                //Debug.Log("Damage!");
+                playerHealth.ApplyDamage((currentWeapon.damage) * magnitude);
 
             }
         }

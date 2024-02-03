@@ -6,6 +6,19 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
 
+    public GameObject gameOverScreen;
+    public GameObject pauseScreen;
+
+    public void SetGameOverScreen(bool isOn)
+    {
+        gameOverScreen.SetActive(isOn);
+    }
+
+    public void SetPauseScreen(bool isOn)
+    {
+        pauseScreen.SetActive(isOn);
+    }
+
     public void StartGameButton()
     {
         SceneManager.LoadScene("Test");
@@ -20,6 +33,7 @@ public class UIController : MonoBehaviour
 
     public void RestartButton()
     {
+        GameManager.instance.StartGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

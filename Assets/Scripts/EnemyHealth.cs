@@ -18,16 +18,16 @@ public class EnemyHealth : MonoBehaviour
 
         foreach (var weapon in aiMovement.equippedWeapons)
         {
-            Debug.Log("adding " + weapon.armHealth + " health to enemy");
+            //Debug.Log("adding " + weapon.armHealth + " health to enemy");
             totalHealth += weapon.armHealth;
         }
 
-        Debug.Log("Total Health: " + totalHealth);
+        //Debug.Log("Total Health: " + totalHealth);
     }
     public void TakeDamage(float damage)
     {
         totalHealth -= damage;
-        Debug.Log(gameObject.name + " took " + damage + " damage. Remaining health: " + totalHealth);
+        //Debug.Log(gameObject.name + " took " + damage + " damage. Remaining health: " + totalHealth);
 
         if (totalHealth <= 0)
         {

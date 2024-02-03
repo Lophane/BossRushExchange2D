@@ -31,6 +31,7 @@ public class AIMovement : MonoBehaviour
     private float currentAttackCooldown;
 
     private int health = 10;
+    public int magnitude = 1;
 
 
     private void Awake()
@@ -74,9 +75,9 @@ public class AIMovement : MonoBehaviour
                 if (currentAttackCooldown <= 0f)
                 {
                     enemyWeaponController.Attack();
-                    Debug.Log("Attacked, boom");
+                    //Debug.Log("Attacked, boom");
                     currentAttackCooldown = attackCooldown; // Reset cooldown
-                    Debug.Log(currentAttackCooldown);
+                    //Debug.Log(currentAttackCooldown);
 
                 }
             }
@@ -242,7 +243,7 @@ public class AIMovement : MonoBehaviour
             currentWeapon = equippedWeapons[randomIndex];
 
             attackCooldown = currentWeapon.attackSpeed; 
-            Debug.Log("Weapon selected: " + currentWeapon.weaponName);
+            //Debug.Log("Weapon selected: " + currentWeapon.weaponName);
             enemyWeaponController.EquipWeapon(currentWeapon);
 
         }

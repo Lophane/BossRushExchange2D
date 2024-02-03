@@ -5,13 +5,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private PlayerHealth playerHealth;
+    public PlayerHealth playerHealth;
+    public PlayerController playerController;
+    public UIController uiController;
     public int startHealth;
 
-    private bool isGameRunning = false;
+    public bool isGameRunning = true;
 
-    private bool isGamePaused = false;
+    public bool isGamePaused = false;
     public KeyCode pauseKey = KeyCode.Tab;
+
 
     private void Awake()
     {
@@ -19,16 +22,38 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
+
+        StartGame();
     }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (playerHealth == null)
+            playerHealth = FindObjectOfType<PlayerHealth>();
+
+        if (playerController == null)
+            playerController = FindObjectOfType<PlayerController>();
+        
+        if (uiController == null)
+            uiController = FindObjectOfType<UIController>();
+
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
 
     void Update()
     {
-        if (IsGameRunning() && Input.GetKeyDown(pauseKey))
+        if (isGameRunning && Input.GetKeyDown(pauseKey))
         {
             TogglePause();
         }
@@ -39,20 +64,26 @@ public class GameManager : MonoBehaviour
         isGameRunning = true;
         playerHealth.health = startHealth;
         // Reset game state, scores, etc.
+        UnpauseGame();
         Debug.Log("Game Started");
+        
     }
 
     public void EndGame()
     {
         isGameRunning = false;
+        PauseGame();
+        uiController.SetPauseScreen(false);
+        uiController.SetGameOverScreen(true);
         Debug.Log("Game Ended");
     }
 
     // Optional: A method to restart the game
     public void RestartGame()
     {
-        StartGame(); // Restart game state
+        StartGame();
         Debug.Log("Game Restarted");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Use this to check the game's current state from other scripts
@@ -63,16 +94,22 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("Paused");
-        isGamePaused = true;
-        Time.timeScale = 0;
+        if (isGamePaused == false)
+        {
+            isGamePaused = true;
+            Time.timeScale = 0;
+            uiController.SetPauseScreen(true);
+        }
     }
 
     public void UnpauseGame()
     {
-        Debug.Log("Unpaused");
-        isGamePaused = false;
-        Time.timeScale = 1;
+        if (isGamePaused == true)
+        {
+            isGamePaused = false;
+            Time.timeScale = 1;
+            uiController.SetPauseScreen(false);
+        }
     }
 
     public void TogglePause()

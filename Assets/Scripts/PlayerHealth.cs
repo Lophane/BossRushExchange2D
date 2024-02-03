@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 10;
+    public int health;
     public PlayerHealthCount playerHealthCount;
 
     public void ApplyDamage(int damageAmount)
@@ -17,8 +17,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            // Handle player death here (e.g., triggering a death animation, game over logic, etc.)
             Debug.Log("Player is dead!");
+            GameManager.instance.EndGame();
+
         }
     }
 }
