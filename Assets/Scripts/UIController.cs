@@ -6,58 +6,23 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
 
-    private bool isGamePaused = false;
-    public KeyCode pauseKey = KeyCode.Tab;
-
-    void Update()
-    {
-        if (Input.GetKeyDown(pauseKey))
-        {
-            TogglePause();
-        }
-    }
-
-    public void StartGame()
+    public void StartGameButton()
     {
         SceneManager.LoadScene("Test");
     }
 
-    public void QuitGame()
+    public void QuitGameButton()
     {
         Debug.Log("Quit Game");
 
         Application.Quit();
     }
 
-    public void Restart()
+    public void RestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void PauseGame()
-    {
-        Debug.Log("Paused");
-        isGamePaused = true;
-        Time.timeScale = 0;
-    }
     
-    public void UnpauseGame()
-    {
-        Debug.Log("Unpaused");
-        isGamePaused = false;
-        Time.timeScale = 1;
-    }
-
-    public void TogglePause()
-    {
-        if (isGamePaused)
-        {
-            UnpauseGame();
-        }
-        else
-        {
-            PauseGame();
-        }
-    }
 
 }

@@ -8,6 +8,8 @@ public class WeaponData : ScriptableObject
     public AnimationClip attackAnimation;
     public Vector2 hitboxSize;
     public Vector2 hitboxOffset;
+    public float hitboxStart;
+    public float hitboxEnd;
     public float damage;
     public float effectiveRange;
     public float attackSpeed;
