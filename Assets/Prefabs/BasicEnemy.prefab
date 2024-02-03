@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 6921919049070892133}
   - component: {fileID: 834992280102439854}
   - component: {fileID: 8592860952047149614}
+  - component: {fileID: -7574343842390020326}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -223,6 +224,18 @@ MonoBehaviour:
   leftArmAttachmentPoint: {fileID: 537464622681542946}
   rightArmAttachmentPoint: {fileID: 4101903345374259618}
   attackCooldown: 1
+--- !u!114 &-7574343842390020326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799812770067958553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755b761248fe26e4eb12953ec3526ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4101903345374259618
 GameObject:
   m_ObjectHideFlags: 0
