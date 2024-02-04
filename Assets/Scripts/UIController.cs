@@ -31,12 +31,20 @@ public class UIController : MonoBehaviour
         Application.Quit();
     }
 
+    public void Resume()
+    {
+        GameManager.instance.UnpauseGame();
+    }
+
     public void RestartButton()
     {
         GameManager.instance.StartGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 
 }
