@@ -14,30 +14,18 @@ public class PlayerWeaponController : MonoBehaviour
 
     private EnemyDeathCache currentEnemyCache;
     private GameObject enemyObject;
-    private EnemyHealth enemyHealth;
-
-    private BoxCollider2D hitbox0;
-    private BoxCollider2D hitbox1;
-    private bool lastAttack0 = true;
+    public PlayerHitboxController pHitbox;
 
 
-    void Start()
+    public bool lastAttack0 = true;
+
+
+    void Awake()
     {
+        //pHitbox = GetComponent<PlayerHitboxController>();
         EquipWeapon(allWeapons[8], leftArmAttachmentPoint);
         EquipWeapon(allWeapons[8], rightArmAttachmentPoint);
 
-        hitbox0 = gameObject.AddComponent<BoxCollider2D>();
-        hitbox1 = gameObject.AddComponent<BoxCollider2D>();
-        hitbox0.isTrigger = true;
-        //hitbox0.tag = "Hitbox0";
-        hitbox1.isTrigger = true;
-        //hitbox1.tag = "Hitbox1";
-
-        UpdateHitbox(0);
-        UpdateHitbox(1);
-
-        DisableHitbox(0);
-        DisableHitbox(1);
     }
 
     void Update()
@@ -68,13 +56,13 @@ public class PlayerWeaponController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 SwapAndDropWeapon(0);
-                UpdateHitbox(0);
+                pHitbox.UpdateHitbox(0);
                 DeleteWeaponAtAttachPoint(enemyObject, "LeftArmAttachPoint");
             }
             else if (Input.GetMouseButtonDown(1))
             {
                 SwapAndDropWeapon(1);
-                UpdateHitbox(1);
+                pHitbox.UpdateHitbox(1);
                 DeleteWeaponAtAttachPoint(enemyObject, "RightArmAttachPoint");
             }
         }
@@ -158,19 +146,6 @@ public class PlayerWeaponController : MonoBehaviour
                 //Debug.Log("I can pick up: " + currentEnemyCache.GetCachedWeapons()[0] + " and " + currentEnemyCache.GetCachedWeapons()[1]);
             }
         }
-
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            enemyHealth = other.GetComponent<EnemyHealth>();
-
-            if (lastAttack0)
-            {
-                enemyHealth.TakeDamage(equippedWeapons[0].damage);
-            }else
-                enemyHealth.TakeDamage(equippedWeapons[1].damage);
-
-        } 
-
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -180,13 +155,15 @@ public class PlayerWeaponController : MonoBehaviour
             enemyObject = null;
             canPickupWeapon = false;
             currentEnemyCache = null;
-            Debug.Log("I moved too far away to pickup anything");
+            //Debug.Log("I moved too far away to pickup anything");
         }
     }
 
     void DeleteWeaponAtAttachPoint(GameObject enemy, string attachPointName)
     {
         Transform attachPoint = enemy.transform.Find(attachPointName);
+        //Debug.Log("Deleting" + attachPoint + " " + enemy);
+
         if (attachPoint != null && attachPoint.childCount > 0)
         {
             Destroy(attachPoint.GetChild(0).gameObject);
@@ -196,50 +173,15 @@ public class PlayerWeaponController : MonoBehaviour
     IEnumerator EnableHitboxAfterDelay(int index, float delay)
     {
         yield return new WaitForSeconds(delay);
-        EnableHitbox(index);
+        pHitbox.EnableHitbox(index);
     }
 
     IEnumerator DisableHitboxAfterDelay(int index, float delay)
     {
         yield return new WaitForSeconds(delay);
-        DisableHitbox(index);
+        pHitbox.DisableHitbox(index);
     }
 
-    public void DisableHitbox(int arm)
-    {
-        if (arm == 0)
-            hitbox0.enabled = false;
-        else
-            hitbox1.enabled = false;
-    }
-
-    public void EnableHitbox(int arm)
-    {
-        if (arm == 0)
-            hitbox0.enabled = true;
-        else
-            hitbox1.enabled = true;
-    }
-
-    private void UpdateHitbox(int arm)
-    {
-        if (equippedWeapons[0] == null || hitbox0 == null || equippedWeapons[1] == null || hitbox1 == null) return;
-
-        if (arm == 0)
-        {
-            hitbox0.size = equippedWeapons[0].hitboxSize;
-            Vector2 currentOffset = equippedWeapons[0].hitboxOffset;
-
-            currentOffset.x = -currentOffset.x;
-
-            hitbox0.offset = currentOffset;
-        }
-        else
-        {
-            hitbox1.size = equippedWeapons[1].hitboxSize;
-            hitbox1.offset = equippedWeapons[1].hitboxOffset;
-        }
-    }
-
+    
 
 }
