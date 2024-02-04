@@ -128,9 +128,10 @@ GameObject:
   - component: {fileID: 8592860952047149614}
   - component: {fileID: 3818417701435030331}
   - component: {fileID: 5328365573378714759}
+  - component: {fileID: 1518340868326462718}
   m_Layer: 0
   m_Name: BasicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +152,7 @@ Transform:
   - {fileID: 8996236649563981904}
   - {fileID: 2883951065498851694}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &834992280102439854
 CircleCollider2D:
@@ -212,20 +213,20 @@ MonoBehaviour:
   targetTag: Player
   stopChaseDistance: 2
   allWeapons:
-  - {fileID: 11400000, guid: eca26bb89644af84d92003ba11a2c870, type: 2}
   - {fileID: 11400000, guid: 29b2d63103747614d9899623d946dd94, type: 2}
   - {fileID: 11400000, guid: 4e20d72c188c99a43b91a48edbeacdac, type: 2}
-  - {fileID: 11400000, guid: 163ce28cf0f70cb4ab2a9b1e6e7f4c98, type: 2}
   - {fileID: 11400000, guid: fe8821a9aad7c1d4c9a610381f182562, type: 2}
   - {fileID: 11400000, guid: b9ed51aef8cd200449b88a8d47695e49, type: 2}
   - {fileID: 11400000, guid: 85857694a25827f46b1b9c6b646c3c91, type: 2}
   - {fileID: 11400000, guid: 788e61b189b98104a8891a3114a12adf, type: 2}
   - {fileID: 11400000, guid: d84319f771d64064e8841da3458cfd4c, type: 2}
+  - {fileID: 11400000, guid: eca26bb89644af84d92003ba11a2c870, type: 2}
   equippedWeapons: []
   leftArmAttachmentPoint: {fileID: 537464622681542946}
   rightArmAttachmentPoint: {fileID: 4101903345374259618}
   enemyWeaponController: {fileID: 3818417701435030331}
   attackCooldown: 1
+  magnitude: 1
 --- !u!114 &3818417701435030331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
+  magnitude: 0
 --- !u!114 &5328365573378714759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +253,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c4b9c7f0e80ad4d9e0511e7ebd994d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDeathCache: {fileID: 0}
   totalHealth: 0
+--- !u!114 &1518340868326462718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799812770067958553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099ce363731754946831d9b0f8fedc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cachedEquippedWeapons: []
 --- !u!1 &4101903345374259618
 GameObject:
   m_ObjectHideFlags: 0

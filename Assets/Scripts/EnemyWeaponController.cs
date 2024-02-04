@@ -56,7 +56,8 @@ public class EnemyWeaponController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+
+        if (collision.gameObject.CompareTag("Player") && this.enabled)
         {
             //Debug.Log("Hit!");
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();

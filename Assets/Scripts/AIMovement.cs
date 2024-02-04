@@ -249,20 +249,4 @@ public class AIMovement : MonoBehaviour
         }
     }
 
-    /*private void AttackWithCurrentWeapon()
-    {
-        if (currentWeapon != null)
-        {
-            // attack code
-
-            SelectWeaponForAttack();
-            AdjustBehaviorBasedOnCurrentWeapon();
-            Debug.Log("attacked, switching to " + currentWeapon);
-        }
-        else
-        {
-            Debug.LogWarning("No weapon selected for attack");
-        }
-    }*/
-
 }
