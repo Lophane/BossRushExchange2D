@@ -63,7 +63,6 @@ public class AIMovement : MonoBehaviour
                 {
                     SelectWeaponForAttack();
 
-                    AdjustBehaviorBasedOnCurrentWeapon();
                 }
 
                 MoveTowardsTarget(currentTarget.transform.position);
@@ -192,7 +191,7 @@ public class AIMovement : MonoBehaviour
     }
 
     //Adjusts minimum range from target to what the minimum range for the selected weapon is
-    private void AdjustBehaviorBasedOnCurrentWeapon()
+    public void AdjustBehaviorBasedOnCurrentWeapon()
     {
         if (currentWeapon != null)
         {
@@ -245,6 +244,8 @@ public class AIMovement : MonoBehaviour
             attackCooldown = currentWeapon.attackSpeed; 
             //Debug.Log("Weapon selected: " + currentWeapon.weaponName);
             enemyWeaponController.EquipWeapon(currentWeapon);
+
+            AdjustBehaviorBasedOnCurrentWeapon();
 
         }
     }

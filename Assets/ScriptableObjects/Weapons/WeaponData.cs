@@ -6,8 +6,10 @@ public class WeaponData : ScriptableObject
     public string weaponName;
     public GameObject weaponPrefab;
     public AnimationClip attackAnimation;
-    public Vector2 hitboxSize;
-    public Vector2 hitboxOffset;
+    public Vector2 enemyHitboxSize;
+    public Vector2 enemyHitboxOffset;
+    [HideInInspector] public Vector2 hitboxSize;
+    [HideInInspector] public Vector2 hitboxOffset;
     public float hitboxStart;
     public float hitboxEnd;
     public int damage;

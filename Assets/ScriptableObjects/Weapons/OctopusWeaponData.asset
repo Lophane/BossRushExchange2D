@@ -15,8 +15,10 @@ MonoBehaviour:
   weaponName: OctopusArm
   weaponPrefab: {fileID: 6033647578498361970, guid: 62019190230193542b455bf44192fe95, type: 3}
   attackAnimation: {fileID: 0}
-  hitboxSize: {x: 0.5, y: 0.5}
-  hitboxOffset: {x: 0.47, y: 0.24}
+  enemyHitboxSize: {x: 5, y: 0.25}
+  enemyHitboxOffset: {x: 2.4, y: 0.25}
+  hitboxSize: {x: 0.25, y: 5}
+  hitboxOffset: {x: 0.2, y: 2.4}
   hitboxStart: 0.1
   hitboxEnd: 0.2
   damage: 1

@@ -9,6 +9,10 @@ TagManager:
   - GameOverScreen
   - PauseScreen
   - Enemy
+  - Corpse
+  - Hitbox0
+  - Hitbox1
+  - UI
   layers:
   - Default
   - TransparentFX

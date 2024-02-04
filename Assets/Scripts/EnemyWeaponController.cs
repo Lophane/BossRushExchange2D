@@ -29,8 +29,25 @@ public class EnemyWeaponController : MonoBehaviour
     {
         if (currentWeapon == null || hitbox == null) return;
 
-        hitbox.size = currentWeapon.hitboxSize;
-        hitbox.offset = currentWeapon.hitboxOffset;
+        int weaponIndex = aiMovement.equippedWeapons.IndexOf(currentWeapon);
+
+        //Debug.Log(weaponIndex);
+
+        hitbox.size = currentWeapon.enemyHitboxSize;
+
+        if (weaponIndex == 1)
+        {
+            
+            Vector2 currentOffset = currentWeapon.enemyHitboxOffset;
+
+            
+            currentOffset.y = -currentOffset.y;
+
+            
+            hitbox.offset = currentOffset;
+        }
+        else
+            hitbox.offset = currentWeapon.enemyHitboxOffset;
     }
     public void Attack()
     {
@@ -39,6 +56,8 @@ public class EnemyWeaponController : MonoBehaviour
         //animator.Play(currentWeapon.attackAnimation.name);
         Invoke("EnableHitbox", currentWeapon.hitboxStart);
         Invoke("DisableHitbox", currentWeapon.hitboxEnd);
+
+        aiMovement.AdjustBehaviorBasedOnCurrentWeapon();
     }
 
     public void DisableHitbox()

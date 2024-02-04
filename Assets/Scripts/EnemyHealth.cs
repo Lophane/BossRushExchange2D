@@ -5,12 +5,15 @@ public class EnemyHealth : MonoBehaviour
 {
     private AIMovement aiMovement;
     public EnemyDeathCache enemyDeathCache;
+    //public PlayerWeaponController playerWeaponController;
     public float totalHealth;
+
 
     void Start()
     {
         aiMovement = GetComponent<AIMovement>();
         enemyDeathCache = GetComponent<EnemyDeathCache>();
+        //playerWeaponController = GameObject.FindWithTag("Player").GetComponent<PlayerWeaponController>();
         UpdateTotalHealth();
     }
 
@@ -50,4 +53,7 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyDeathCache.Death();
     }
+
+    
+
 }

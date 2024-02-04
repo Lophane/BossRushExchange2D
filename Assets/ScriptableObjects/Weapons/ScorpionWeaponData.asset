@@ -15,8 +15,10 @@ MonoBehaviour:
   weaponName: ScorpionArm
   weaponPrefab: {fileID: 6374526349952644653, guid: f8765189c28095a408a315c2f91acaee, type: 3}
   attackAnimation: {fileID: 0}
+  enemyHitboxSize: {x: 0.5, y: 0.5}
+  enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}
-  hitboxOffset: {x: 0.47, y: 0.24}
+  hitboxOffset: {x: 0.24, y: 0.47}
   hitboxStart: 0.1
   hitboxEnd: 0.2
   damage: 2
