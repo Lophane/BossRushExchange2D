@@ -4,12 +4,23 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private AIMovement aiMovement;
+    public EnemyDeathCache enemyDeathCache;
     public float totalHealth;
 
     void Start()
     {
         aiMovement = GetComponent<AIMovement>();
+        enemyDeathCache = GetComponent<EnemyDeathCache>();
         UpdateTotalHealth();
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Die();
+        }
     }
 
     void UpdateTotalHealth()
@@ -37,6 +48,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " has died.");
+        enemyDeathCache.Death();
     }
 }
