@@ -12,7 +12,7 @@ public class PlayerHealthCount : MonoBehaviour
     private void Start()
     {
         UpdateHeartUI(playerHealth.health);
-        Debug.Log("Player Health is " + playerHealth.health);
+        //Debug.Log("Player Health is " + playerHealth.health);
     }
 
     public void UpdateHeartUI(int currentHealth)

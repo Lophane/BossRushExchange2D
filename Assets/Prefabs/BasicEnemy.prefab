@@ -103,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1782548657, guid: 5e35e93f9a3fd1943a00ff8167fa8961, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -115,6 +115,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2777857898245963831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6329046802019369219}
+  - component: {fileID: 241271044376243014}
+  m_Layer: 0
+  m_Name: HitboxController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6329046802019369219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2777857898245963831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6921919049070892133}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241271044376243014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2777857898245963831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3622190ee852fc74bbfe51372b8d0787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 0}
+  eWC: {fileID: 3818417701435030331}
+  aiMovement: {fileID: 8592860952047149614}
 --- !u!1 &3799812770067958553
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +198,7 @@ Transform:
   - {fileID: 3914891947040598862}
   - {fileID: 8996236649563981904}
   - {fileID: 2883951065498851694}
+  - {fileID: 6329046802019369219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -240,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
+  eHC: {fileID: 241271044376243014}
   magnitude: 0
 --- !u!114 &5328365573378714759
 MonoBehaviour:
@@ -253,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c4b9c7f0e80ad4d9e0511e7ebd994d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDeathCache: {fileID: 0}
+  enemyDeathCache: {fileID: 1518340868326462718}
   totalHealth: 0
 --- !u!114 &1518340868326462718
 MonoBehaviour:

@@ -44,6 +44,8 @@ public class EnemyDeathCache : MonoBehaviour
             Debug.Log("enemyWeaponController is disabled");
         }
 
+        this.gameObject.tag = "Corpse";
+
         StartCoroutine(DestroyAfterCooldown(45.0f));
     }
 

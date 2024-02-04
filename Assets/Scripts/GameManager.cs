@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         playerHealth.health = startHealth;
         // Reset game state, scores, etc.
         UnpauseGame();
-        Debug.Log("Game Started");
+        //Debug.Log("Game Started");
         
     }
 
