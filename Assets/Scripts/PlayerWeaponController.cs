@@ -15,6 +15,7 @@ public class PlayerWeaponController : MonoBehaviour
     private EnemyDeathCache currentEnemyCache;
     private GameObject enemyObject;
     public PlayerHitboxController pHitbox;
+    public PlayerHealth playerHealth;
 
 
     public bool lastAttack0 = true;
@@ -92,9 +93,22 @@ public class PlayerWeaponController : MonoBehaviour
 
             WeaponData weaponToPickUp = currentEnemyCache.GetCachedWeapons()[weaponIndex];
             WeaponData weaponToDrop = equippedWeapons[weaponIndex];
+            int otherWeapon;
+
+            if (weaponIndex == 0)
+                otherWeapon = 1;
+            else
+                otherWeapon = 0;
+
 
             if (weaponToPickUp.weaponName != weaponToDrop.weaponName)
             {
+
+                int newArmHealth = weaponToPickUp.armHealth;
+                int otherWeaponHealth = equippedWeapons[otherWeapon].armHealth;
+                Debug.Log(newArmHealth + " and " + newArmHealth + " and " + otherWeaponHealth);
+
+                playerHealth.CalculateHealth(newArmHealth, otherWeaponHealth);
 
                 Quaternion randomRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                 Instantiate(weaponToDrop.weaponPrefab, transform.position, randomRotation);

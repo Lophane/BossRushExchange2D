@@ -46,7 +46,7 @@ public class EnemyDeathCache : MonoBehaviour
 
         this.gameObject.tag = "Corpse";
 
-        StartCoroutine(DestroyAfterCooldown(45.0f));
+        StartCoroutine(DestroyAfterCooldown(20.0f));
     }
 
     IEnumerator DestroyAfterCooldown(float cooldown)

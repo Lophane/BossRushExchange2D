@@ -15,5 +15,5 @@ public class WeaponData : ScriptableObject
     public int damage;
     public float effectiveRange;
     public float attackSpeed;
-    public float armHealth;
+    public int armHealth;
 }

@@ -1,9 +1,12 @@
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int health;
+    public int maxHealth;
     public PlayerHealthCount playerHealthCount;
+    public PlayerWeaponController PlayerWeaponController;
 
     private void Start()
     {
@@ -35,4 +38,16 @@ public class PlayerHealth : MonoBehaviour
 
         }
     }
+
+    public void CalculateMaxHealth() { }
+
+    public void CalculateHealth(int newArm, int arm2)
+    {
+        maxHealth = newArm + arm2; 
+
+        health = Math.Min(health + newArm, maxHealth);
+
+        playerHealthCount.UpdateHeartUI(health);
+    }
+
 }
