@@ -13,6 +13,7 @@ TagManager:
   - Hitbox0
   - Hitbox1
   - UI
+  - Spawner
   layers:
   - Default
   - TransparentFX
