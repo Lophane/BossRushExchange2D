@@ -26,7 +26,7 @@ public class EnemyDeathCache : MonoBehaviour
     public void Death()
     {
          HandleDeath();
-        Debug.Log("I'm Dead AF");
+        //Debug.Log("I'm Dead AF");
     }
 
     void HandleDeath()

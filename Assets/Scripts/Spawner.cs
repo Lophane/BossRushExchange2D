@@ -8,14 +8,22 @@ public class Spawner : MonoBehaviour
     private bool playerIsInside = false;
     public float minSpawnTime = 5f; 
     public float maxSpawnTime = 10f;
+    private bool firstSpawn = true;
 
     void Start()
     {
+        if (firstSpawn == true)
+        {
+            firstSpawn = false;
+            currentEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        }
+
         StartCoroutine(SpawnEnemy());
     }
 
     IEnumerator SpawnEnemy()
     {
+
         while (true)
         {
             yield return new WaitUntil(() => currentEnemy == null && !playerIsInside);

@@ -5,16 +5,19 @@ public class EnemyHealth : MonoBehaviour
 {
     private AIMovement aiMovement;
     public EnemyDeathCache enemyDeathCache;
+    public NextAreaZone nextAreaZone;
     //public PlayerWeaponController playerWeaponController;
     public float totalHealth;
     public bool tutorialMob;
+    public bool boss = false;
+
 
 
     void Start()
     {
         aiMovement = GetComponent<AIMovement>();
         enemyDeathCache = GetComponent<EnemyDeathCache>();
-        //playerWeaponController = GameObject.FindWithTag("Player").GetComponent<PlayerWeaponController>();
+        nextAreaZone = GameObject.FindWithTag("EndZone").GetComponent<NextAreaZone>();
         UpdateTotalHealth();
     }
 
@@ -35,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
         {
             //Debug.Log("adding " + weapon.armHealth + " health to enemy");
             totalHealth += weapon.armHealth;
+            totalHealth = totalHealth * aiMovement.magnitude;
         }
 
         //Debug.Log("Total Health: " + totalHealth);
@@ -47,6 +51,8 @@ public class EnemyHealth : MonoBehaviour
         if (totalHealth <= 0)
         {
             Die();
+            if(boss)
+                nextAreaZone.bossDead = true;
         }
     }
 
