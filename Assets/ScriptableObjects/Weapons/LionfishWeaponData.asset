@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LionfishWeaponData
   m_EditorClassIdentifier: 
   weaponName: LionfishArm
-  weaponPrefab: {fileID: 4936157056052004065, guid: fdbb5a4ea16f1ff429d66eb82928130e, type: 3}
+  weaponPrefab: {fileID: 7112161201093330163, guid: ad0941cefdb92fe4ca22a5c6894ddf13, type: 3}
   attackAnimation: {fileID: 7400000, guid: 5f89508897fc8f846b8c5540438b7eb4, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
