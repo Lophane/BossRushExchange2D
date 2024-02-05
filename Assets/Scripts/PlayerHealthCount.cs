@@ -11,8 +11,19 @@ public class PlayerHealthCount : MonoBehaviour
 
     private void Start()
     {
-        UpdateHeartUI(playerHealth.health);
-        //Debug.Log("Player Health is " + playerHealth.health);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                UpdateHeartUI(playerHealth.health);
+            }
+            else
+            {
+                Debug.LogError("PlayerHealth component not found on Player object.");
+            }
+        }
     }
 
     public void UpdateHeartUI(int currentHealth)
