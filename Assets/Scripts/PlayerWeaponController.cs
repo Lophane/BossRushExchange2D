@@ -24,8 +24,8 @@ public class PlayerWeaponController : MonoBehaviour
     void Awake()
     {
         //pHitbox = GetComponent<PlayerHitboxController>();
-        EquipWeapon(allWeapons[8], leftArmAttachmentPoint);
-        EquipWeapon(allWeapons[8], rightArmAttachmentPoint);
+        EquipWeapon(GameManager.instance.pLeftArm, leftArmAttachmentPoint);
+        EquipWeapon(GameManager.instance.pRightArm, rightArmAttachmentPoint);
 
     }
 
@@ -145,6 +145,8 @@ public class PlayerWeaponController : MonoBehaviour
             GameObject weaponObj = Instantiate(weaponData.weaponPrefab, attachmentPoint.transform);
             weaponObj.transform.localPosition = Vector3.zero;
             equippedWeapons.Add(weaponData);
+            GameManager.instance.pLeftArm = equippedWeapons[0];
+            GameManager.instance.pRightArm = equippedWeapons[1];
         }
     }
 

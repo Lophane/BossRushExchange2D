@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public UIController uiController;
     public int startHealth;
+    public int pHealth;
+    public WeaponData pLeftArm;
+    public WeaponData pRightArm;
 
     public bool isGameRunning = true;
 
@@ -28,7 +31,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         StartGame();
     }
 

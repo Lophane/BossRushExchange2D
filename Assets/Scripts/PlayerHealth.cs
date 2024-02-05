@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     public PlayerHealthCount playerHealthCount;
     public PlayerWeaponController PlayerWeaponController;
+    public PlayerStats stats;
 
     private void Start()
     {
@@ -19,6 +21,9 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.LogError("The object with tag 'UI' was not found in the scene.");
         }
+
+        health = GameManager.instance.pHealth;
+
     }
 
     public void ApplyDamage(int damageAmount)
@@ -29,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         if (playerHealthCount != null)
         {
             playerHealthCount.UpdateHeartUI(health);
+            GameManager.instance.pHealth = health;
         }
 
         if (health <= 0)
@@ -39,8 +45,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void CalculateMaxHealth() { }
-
     public void CalculateHealth(int newArm, int arm2)
     {
         maxHealth = newArm + arm2; 
@@ -50,4 +54,5 @@ public class PlayerHealth : MonoBehaviour
         playerHealthCount.UpdateHeartUI(health);
     }
 
+   
 }
