@@ -103,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1782548657, guid: 5e35e93f9a3fd1943a00ff8167fa8961, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeathCache: {fileID: 1518340868326462718}
   totalHealth: 0
+  tutorialMob: 0
 --- !u!114 &1518340868326462718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cachedEquippedWeapons: []
+  enemyHealth: {fileID: 0}
 --- !u!1 &4101903345374259618
 GameObject:
   m_ObjectHideFlags: 0

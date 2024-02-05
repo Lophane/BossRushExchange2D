@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 48
         width: 48
         height: 48
       alignment: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d6da061c9e5bde4d961cbe589ed3279
-      internalID: -79017707
+      spriteID: 7b2bec59e6192dc4ebe9dbbae6e0e3af
+      internalID: 645636669
       vertices: []
       indices: 
       edges: []
@@ -135,6 +135,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb0e65dcf3a69646823cc48417089a9
+      internalID: -1663630551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CornerPeice_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdefe3f90f8e6344ab8a8b00ee33416
+      internalID: -974551037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CornerPeice_3
+      rect:
+        serializedVersion: 2
+        x: 48
         y: 0
         width: 48
         height: 48
@@ -145,50 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57bc5521f8c7c9044a6e28cf05fc8c00
-      internalID: 814599690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CornerPeice_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dae771ef2a6aa7f4eafd91e6a86ee669
-      internalID: -1675417401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CornerPeice_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72ce0fa57f2d1dd449bee7d2bbca7c97
-      internalID: -703902125
+      spriteID: 8d19402521a603a499df668abb3e3770
+      internalID: 2142757636
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CornerPeice_0: -79017707
-      CornerPeice_1: 814599690
-      CornerPeice_2: -1675417401
-      CornerPeice_3: -703902125
+      CornerPeice_0: 645636669
+      CornerPeice_1: -1663630551
+      CornerPeice_2: -974551037
+      CornerPeice_3: 2142757636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

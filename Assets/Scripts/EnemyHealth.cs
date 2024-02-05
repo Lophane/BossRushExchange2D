@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public EnemyDeathCache enemyDeathCache;
     //public PlayerWeaponController playerWeaponController;
     public float totalHealth;
+    public bool tutorialMob;
 
 
     void Start()
@@ -20,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (tutorialMob)
         {
             Die();
         }

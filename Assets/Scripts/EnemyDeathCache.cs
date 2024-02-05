@@ -8,12 +8,14 @@ public class EnemyDeathCache : MonoBehaviour
     private EnemyWeaponController enemyWeaponController;
     private Collider2D enemyCollider;
     public List<WeaponData> cachedEquippedWeapons = new List<WeaponData>();
+    public EnemyHealth enemyHealth;
 
     void Start()
     {
         aiMovement = GetComponent<AIMovement>();
         enemyCollider = GetComponent<Collider2D>();
         enemyWeaponController = GetComponent<EnemyWeaponController>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
         if (aiMovement != null)
         {
@@ -46,7 +48,8 @@ public class EnemyDeathCache : MonoBehaviour
 
         this.gameObject.tag = "Corpse";
 
-        StartCoroutine(DestroyAfterCooldown(20.0f));
+        if (!enemyHealth.tutorialMob)
+            StartCoroutine(DestroyAfterCooldown(20.0f));
     }
 
     IEnumerator DestroyAfterCooldown(float cooldown)

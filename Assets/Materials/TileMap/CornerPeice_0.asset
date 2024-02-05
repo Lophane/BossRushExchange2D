@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: CornerPeice_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 545df29eb0baa0e4695a5e3358fac2bf, type: 2}
+  m_Sprite: {fileID: 645636669, guid: e900409757c1eec46846e3d7c3cef4ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

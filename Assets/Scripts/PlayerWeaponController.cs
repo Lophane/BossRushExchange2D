@@ -145,8 +145,14 @@ public class PlayerWeaponController : MonoBehaviour
             GameObject weaponObj = Instantiate(weaponData.weaponPrefab, attachmentPoint.transform);
             weaponObj.transform.localPosition = Vector3.zero;
             equippedWeapons.Add(weaponData);
-            GameManager.instance.pLeftArm = equippedWeapons[0];
-            GameManager.instance.pRightArm = equippedWeapons[1];
+
+            if (attachmentPoint = leftArmAttachmentPoint)
+                GameManager.instance.pLeftArm = equippedWeapons[0];
+            else
+                GameManager.instance.pRightArm = equippedWeapons[1];
+
+
+
         }
     }
 
