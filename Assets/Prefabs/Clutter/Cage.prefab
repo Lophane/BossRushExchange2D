@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2911582600410661464}
   - component: {fileID: 5616735681001636957}
   - component: {fileID: 3561347568286401559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
