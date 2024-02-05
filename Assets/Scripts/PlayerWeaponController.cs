@@ -20,13 +20,17 @@ public class PlayerWeaponController : MonoBehaviour
 
 
     public bool lastAttack0 = true;
+    public bool firstEquip = true;
 
 
     void Awake()
     {
         //pHitbox = GetComponent<PlayerHitboxController>();
         EquipWeapon(GameManager.instance.pLeftArm, leftArmAttachmentPoint);
+
+        //Debug.Log(GameManager.instance.pRightArm);
         EquipWeapon(GameManager.instance.pRightArm, rightArmAttachmentPoint);
+
 
     }
 
@@ -108,7 +112,7 @@ public class PlayerWeaponController : MonoBehaviour
 
                 int newArmHealth = weaponToPickUp.armHealth;
                 int otherWeaponHealth = equippedWeapons[otherWeapon].armHealth;
-                Debug.Log(newArmHealth + " and " + newArmHealth + " and " + otherWeaponHealth);
+                //Debug.Log(newArmHealth + " and " + newArmHealth + " and " + otherWeaponHealth);
 
                 playerHealth.CalculateHealth(newArmHealth, otherWeaponHealth);
 
@@ -147,15 +151,23 @@ public class PlayerWeaponController : MonoBehaviour
             GameObject weaponObj = Instantiate(weaponData.weaponPrefab, attachmentPoint.transform);
             weaponObj.transform.localPosition = Vector3.zero;
             equippedWeapons.Add(weaponData);
-
-            if (attachmentPoint = leftArmAttachmentPoint)
+            Debug.Log(attachmentPoint);
+            if(attachmentPoint == leftArmAttachmentPoint)
                 GameManager.instance.pLeftArm = equippedWeapons[0];
             else
                 GameManager.instance.pRightArm = equippedWeapons[1];
 
-
-
         }
+    }
+
+    private void RegisterWeapons()
+    {
+        if(equippedWeapons[0] != null)
+            GameManager.instance.pLeftArm = equippedWeapons[0];
+
+        if (equippedWeapons[1] != null)
+            GameManager.instance.pRightArm = equippedWeapons[1];
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

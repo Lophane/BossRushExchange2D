@@ -882,7 +882,9 @@ MonoBehaviour:
   uiController: {fileID: 1741627835}
   startHealth: 10
   pHealth: 0
+  startingpLeftArm: {fileID: 0}
   pLeftArm: {fileID: 11400000, guid: 163ce28cf0f70cb4ab2a9b1e6e7f4c98, type: 2}
+  startingRightArm: {fileID: 0}
   pRightArm: {fileID: 11400000, guid: 163ce28cf0f70cb4ab2a9b1e6e7f4c98, type: 2}
   isGameRunning: 1
   isGamePaused: 0
@@ -15977,6 +15979,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393717948258459671, guid: f54ab0955dd81b544a4067b0bc8fc517, type: 3}
+      propertyPath: dashDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3060887748738011927, guid: f54ab0955dd81b544a4067b0bc8fc517, type: 3}
       propertyPath: pHitbox
       value: 
