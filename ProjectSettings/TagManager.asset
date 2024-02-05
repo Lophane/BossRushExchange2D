@@ -15,6 +15,7 @@ TagManager:
   - UI
   - Spawner
   - EndZone
+  - Music
   layers:
   - Default
   - TransparentFX
