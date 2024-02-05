@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: EagleArm
   weaponPrefab: {fileID: 8387388132940649330, guid: 783a62b03913ca94a8bbfb0e44ba9baa, type: 3}
-  attackAnimation: {fileID: 0}
+  attackAnimation: {fileID: 7400000, guid: 2ae389505ba7d94488a65b171a21b205, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}

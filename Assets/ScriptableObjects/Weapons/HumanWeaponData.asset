@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: HumanArm
   weaponPrefab: {fileID: 7692476413259919329, guid: 09b16b487463a6e459ca52f8dee2c2c5, type: 3}
-  attackAnimation: {fileID: 0}
+  attackAnimation: {fileID: 7400000, guid: 95090b219c1465340bcfac52d729c940, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}

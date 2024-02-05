@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: BatArm
   weaponPrefab: {fileID: 6024277765909055116, guid: 7f4b33d71ebb97b42994709ad53a9c3a, type: 3}
-  attackAnimation: {fileID: 0}
+  attackAnimation: {fileID: 7400000, guid: a05c4e0ae6cc5554dac8dc2db0d7dfa0, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}

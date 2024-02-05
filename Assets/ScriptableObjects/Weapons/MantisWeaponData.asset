@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: MantisArm
   weaponPrefab: {fileID: 681083852424683082, guid: 719c97cc62e1f3f43b033c47a4f3c32f, type: 3}
-  attackAnimation: {fileID: 0}
+  attackAnimation: {fileID: 7400000, guid: c7691d0af31553a4cbe2e1b5de11c8c9, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}
