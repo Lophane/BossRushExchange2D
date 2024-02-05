@@ -16,6 +16,7 @@ public class PlayerWeaponController : MonoBehaviour
     private GameObject enemyObject;
     public PlayerHitboxController pHitbox;
     public PlayerHealth playerHealth;
+    public Animator animator;
 
 
     public bool lastAttack0 = true;
@@ -71,7 +72,8 @@ public class PlayerWeaponController : MonoBehaviour
 
     void Attack1()
     {
-        //animator.Play(equippedWeapons[0].attackAnimation.name);
+        Debug.Log(equippedWeapons[0].attackAnimation.name);
+        animator.Play(equippedWeapons[0].attackAnimation.name);
         StartCoroutine(EnableHitboxAfterDelay(0, equippedWeapons[0].hitboxStart));
         StartCoroutine(DisableHitboxAfterDelay(0, equippedWeapons[0].hitboxEnd));
 
@@ -79,7 +81,7 @@ public class PlayerWeaponController : MonoBehaviour
 
     void Attack2()
     {
-        //animator.Play(equippedWeapons[1].attackAnimation.name);
+        animator.Play(equippedWeapons[1].attackAnimation.name);
         StartCoroutine(EnableHitboxAfterDelay(1, equippedWeapons[1].hitboxStart));
         StartCoroutine(DisableHitboxAfterDelay(1, equippedWeapons[1].hitboxEnd));
 

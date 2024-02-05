@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: BearArm
   weaponPrefab: {fileID: 254448519037497831, guid: c183792157714554e84efc72d20d38a4, type: 3}
-  attackAnimation: {fileID: 0}
+  attackAnimation: {fileID: 7400000, guid: 2440347a7f35d0647ac4ca45317d93bd, type: 2}
   enemyHitboxSize: {x: 0.5, y: 0.5}
   enemyHitboxOffset: {x: 0.47, y: 0.24}
   hitboxSize: {x: 0.5, y: 0.5}
