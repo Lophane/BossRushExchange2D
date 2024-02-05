@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public UIController uiController;
     public int startHealth;
     public int pHealth;
+    public WeaponData startingpLeftArm;
     public WeaponData pLeftArm;
+    public WeaponData startingRightArm;
     public WeaponData pRightArm;
 
     public bool isGameRunning = true;
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        startingpLeftArm = pLeftArm; 
+        startingRightArm = pRightArm;
         StartGame();
     }
 
@@ -64,7 +68,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameRunning = true;
-        playerHealth.health = startHealth;
+        pHealth = startHealth;
+        pLeftArm = startingpLeftArm;
+        pRightArm = startingRightArm;
         // Reset game state, scores, etc.
         UnpauseGame();
         //Debug.Log("Game Started");
