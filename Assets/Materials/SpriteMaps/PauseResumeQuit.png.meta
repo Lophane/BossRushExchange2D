@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47f940ecdff6caa46a8282b584e06f29
+guid: fa73ca6c3dd0c2f46ae703d961d51616
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Program_Completion_0
+      name: PauseResumeQuit_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 211
-        width: 604
-        height: 232
+        x: 258
+        y: 267
+        width: 231
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b61144cfa893acf49a2e03872e665701
-      internalID: -604088438
+      spriteID: 99274f581aadd494a856f492b548ffdf
+      internalID: -1646266915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseResumeQuit_1
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 181
+        width: 188
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a123a34f136d3ba459322d3c484d0717
+      internalID: -233994898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseResumeQuit_2
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 105
+        width: 100
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1572f0cb04bfa2447b32631c4db76fb6
+      internalID: 609099874
       vertices: []
       indices: 
       edges: []
@@ -141,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Program_Completion_0: -604088438
-      Program_Completion_1: -733375277
-      Program_Completion_2: 1737127347
-      Program_Completion_3: 1715852492
+      PauseResumeQuit_0: -1646266915
+      PauseResumeQuit_1: -233994898
+      PauseResumeQuit_2: 609099874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
